@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/SpringIOC"/>
+	<classpathentry kind="lib" path="C:/Users/Sai/Downloads/commons-logging-1.2-bin/commons-logging-1.2/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="F:/SOFT/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="F:/SOFT/spring-framework-5.0.7.RELEASE/libs/spring-expression-5.0.7.RELEASE.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url"
+			value="jdbc:oracle:thin:@localhost:1521:XE" />
+		<property name="username" value="system" />
+		<property name="password" value="sample" />
+	</bean>
+
+	<bean name="metroDAO" class="com.metro.dao.MetroDAOImpl">
+		<constructor-arg ref="dataSource" />
+	</bean>
+
+	<bean name="metroService"
+		class="com.metro.service.MetroServiceImpl">
+		<constructor-arg ref="metroDAO" />
+	</bean>
+
+	<bean name="metroController"
+		class="com.metro.controller.MetroController">
+		<constructor-arg ref="metroService" />
+	</bean>
+
+
+</beans>
