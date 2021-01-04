@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Login</title>
+</head>
+
+<body>
+    <%- include('../partials/header.ejs')%>
+    <%- include('../partials/message.ejs')%>
+    <div class="login">
+            <form action="/users/login" method="POST" >
+                <label for="email">Email</label><br>
+                <input placeholder="Enter Email"  id="email" name="email" ><br><br>
+                <label for="password">Password</label><br>
+                <input type="password" placeholder="Enter Password"  id="password" name="password"><br><br>
+                <input type="submit" value="Login">
+            </form>
+    </div>
+    <%- include('../partials/footer.ejs')%>
+</body>
+
+
+</html>

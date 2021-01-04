@@ -1,0 +1,19 @@
+<div class="header">
+    <a href="/"><img src="/public/images/logo.jpg" height="50" alt="Logo"></a>
+    <div class="header-center">
+        <a href="/"><h2>CCI Grads</h2></a>
+    </div>
+    <div class="header-right">       
+        <a href="/events/createConnection">Create a New Event</a>
+		<a href="/events/savedConnections">Saved Events</a>
+        <a href="/users/logout">Logout</a>        
+    </div>
+    <div class="header-bottom">
+        <a href="/events/getAllConnections">All Events</a>
+		<div class="header-bottom-right"> 
+			<%if(user) {%>					
+			<p>Welcome <%=user.name %></p>
+			<%} %>
+		</div>
+    </div>
+</div>

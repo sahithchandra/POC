@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saved Connections</title>
+		<link rel="stylesheet" href="/public/css/styles.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<%- include("../partials/savedConnectionHeader.ejs") %>
+		<%- include("../partials/message.ejs")%>
+		<div class="articles">
+			<div class="all_events">
+				<h2><%=user.name%>'s Events</h2>
+		<% if(connections.length > 0) {%>	
+		<form>		
+			<table>
+				<tr>
+					<th>Event Name</th>
+    				<th>Category</th>				
+					<th>Actions</th>
+				</tr>
+				<% connections.forEach(element=>{%>
+					<tr>
+						<td><%=element.connectionName%></td>
+						<td><%=element.connectionTopic%></td>  
+     					<td>
+							<button type="submit" id="updateButton" formmethod="GET" formaction="/events/<%= element._id%>/update" class="event_action" >Update</button>
+							<button type="submit" formmethod="POST" formaction="/events/<%= element._id%>?_method=DELETE" class="event_action">Delete</button>						
+						</td>
+					</tr>				
+					<%});%>
+			</table>
+		</form>
+			<%} else { %>
+				<h2>You dont own any events</h2>
+			<% } %>	
+		</div>
+		
+			<div class="all_events">
+				<h2><%=user.name%>'s RSVP's</h2>
+		<% if(rsvps.length > 0) {%>	
+		<form>		
+			<table>
+				<tr>
+					<th>Event Name</th>
+					<th>Category</th>  
+					<th>Going?</th>  				
+    				<th>Actions</th>
+				</tr>
+				<% rsvps.forEach(element=>{%>
+					<tr>
+						<td><%=element.connection.connectionName%></td>
+						<td><%=element.connection.connectionTopic%></td>  
+						<td><%=element.action%></td>   				
+     					<td>
+							<button type="submit" id="updateButton" formmethod="GET" formaction="/events/<%=element.connection._id%>" class="event_action" >Update</button>
+							<button type="submit" formmethod="POST" formaction="/rsvp/<%= element.connection._id%>?_method=DELETE" class="event_action">Delete</button>						
+						</td>
+					</tr>
+					<%});%>
+			</table>
+		</form>
+			<%} else { %>
+				<h2>You have not rsvped any events.</h2>
+			<%} %>
+	</div>
+		<%- include("../partials/footer.ejs") %>
+	</body>
+</html>

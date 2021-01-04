@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Sign Up</title>
+</head>
+<body>
+    <%- include('../partials/header.ejs')%>
+    <div class="login">
+            <form action="/users/signup" method="POST">
+                <label for="firstName">First Name</label><br>
+                <input type="text" placeholder="Enter First Name" id="firstName" name="firstName" ><br>
+                <label for="lastName">Last Name</label><br>
+                <input type="text" placeholder="Enter Last Name" id="lastName" name="lastName" ><br>
+                <label for="email">Email</label><br>
+                <input id="email" name="email" placeholder="Enter Email"><br>
+                <label for="password">Password</label><br>
+                <input type="password" placeholder="Enter Password" id="password" name="password"><br><br>
+                <input type="submit" value="Sign Up">               
+            </form>
+    </div>
+    <%- include('../partials/footer.ejs')%>
+</body>
+</html>
