@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Connection</title>
+		<link rel="stylesheet" href="/public/css/styles.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<%- include("../partials/header.ejs") %>
+		<div class="articles">
+			<div class="single_event">
+				<h2><%=event.connectionName%></h2>
+				<div class="event_image">
+					<img src="<%=event.image%>" height="120" alt="Logo">
+				</div>
+				<div class="event_time_details">
+					<p>Hosted By <%=event.user.firstName%></p>
+					<p><%=event.date%></p>
+					<p><%=event.time%></p>
+					<p><%=event.location%></p>			
+				</div>	
+			</div>		
+				<% if (user) { %>					
+				<% if(event.user._id == user.id) {%>
+					<div class="nav_article">					
+						<form>
+							<button type="submit" formmethod="GET" formaction="/events/<%= event._id%>/update">Update</button>
+							<button type="submit" formmethod="POST" formaction="/events/<%= event._id%>?_method=DELETE">Delete</button>
+						</form>
+					</div>
+				<% } else { %>
+					<div class="nav_article">	
+						<h3><%=count%> people are going. Are you interested in going?</h3>
+						<form>
+							<button class="yes" type="submit" formmethod="POST" formaction="/rsvp/<%= event._id%>/Yes/updateRsvp?_method=PUT">Yes</button>
+							<button class="no" type="submit" formmethod="POST" formaction="/rsvp/<%= event._id%>/No/updateRsvp?_method=PUT">No</button>
+							<button class="maybe" type="submit" formmethod="POST" formaction="/rsvp/<%= event._id%>/Maybe/updateRsvp?_method=PUT">Maybe</button>
+						</form>
+					</div>
+				<% } %>
+				<% } else { %>
+					<div class="nav_article">					
+						<h3><%=count%> people are going. Are you interested in going?</h3>							
+						<form>
+							<button class="yes" type="submit" formmethod="POST" formaction="/rsvp/<%= event._id%>/Yes/updateRsvp?_method=PUT">Yes</button>
+							<button class="no" type="submit" formmethod="POST" formaction="/rsvp/<%= event._id%>/No/updateRsvp?_method=PUT">No</button>
+							<button class="maybe" type="submit" formmethod="POST" formaction="/rsvp/<%= event._id%>/Maybe/updateRsvp?_method=PUT">Maybe</button>
+						</form>
+					</div>
+				<% } %>
+		
+			<div class="event_details">
+				<h3>Event Details</h3>
+				<p><%=event.details%></p>
+			</div>			
+		</div>
+		<%- include("../partials/footer.ejs") %>
+	</body>
+</html>
