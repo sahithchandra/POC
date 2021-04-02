@@ -1,0 +1,40 @@
+ Program Design:
+ Here in this project I have created two separate files Encoder class 
+ and Decoder class which has encoding and decoding logic respectively.
+ Additionally I have also created a helper class named UtilityHelper which has some static methods which are used in Encoder 
+ and Decoder classes in order to convert the output into expected form.
+ 
+ Data structure design:
+ Here I have used Hash map to store the ASCII Characters. As hashMap retrieves in O(1) time I felt this data structure suits well
+ in this scenario.
+ 
+ Breakdown of the files:
+ For Encoder class the input ASCII text file path along with bit length is sent as part of command line arguments and the output of the
+ Encoder class i.e., generated .lzw file along with bit length is passed as input to Decoder class in command line arguments.
+ 
+ A summary of what you think works and fails in your program:
+ If the file path along with bit lengths are given correctly in the command line arguments then the two files both 
+ Encoder and Decoder will run successfully and converts the given input into encoded form and later decodes it.
+ If we fail to provide either file paths / bit length in command line arguments then both the classes throw 
+ java.lang.ArrayIndexOutOfBoundsException.
+  
+ Programming language Used: Java
+ 
+ Compiler Version: Java8
+  
+ Information on how to run your program:
+ Please enter the below mentioned commands in the command line to compile and run the program
+ Steps to Compile Encoder Class:
+ 	javac UtilityHelper.java
+ 	javac Encoder.java
+ Steps to Run Encoder Class:
+ 	java Encoder C:\Users\Sai\Downloads\examples\input2.txt 12
+ 
+ Steps to Compile Decoder Class:
+ 	javac UtilityHelper.java
+ 	javac Decoder.java
+ Steps to Run Decoder Class:
+ 	java Decoder C:\Users\Sai\Downloads\examples\input2.lzw 12
+ 	
+ In order to change the path of the input files we can change them in the run command of both encoder and decoder respectively.
+ 
