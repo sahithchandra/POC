@@ -1,0 +1,35 @@
+Your README file should have a brief description of your program design
+ and data structure design, the breakdown of the files, a summary of what you think works and fails in your program,
+ which programming language and compiler version you used, and information on how to run your program.
+ 
+ Program Design:
+ Here in this project I have created two separate files for Encoder class in com.encoder package
+ and Decoder class in com.decoder package which has encoding and decoding logic respectively.
+ Additionally I have also created a helper class named UtilityHelper which has some static methods which are used in Encoder 
+ and Decoder classes in order to convert the output into expected form.
+ 
+ Data structure design:
+ Here I have used Hashmap to store the ASCII Characters. As hashMap retrieves in O(1) time I felt this data structure suits well
+ in this scenario.
+ 
+ Breakdown of the files:
+ For Encoder class the input ASCII text file path along with bit length is sent as part of command line arguments and the output of the
+ Encoder class i.e., generated .lzw file is passed as input to Decoder class in command line arguments.
+ 
+  A summary of what you think works and fails in your program:
+  If the file path along with bit lengths are given correctly in the command line arguments then the two files both 
+  Encoder and Decoder will run successfully and converts the given input into encoded form and later decodes it.
+  If we fail to provide either file paths / bitlength in command line arguments then both the classes throw 
+  java.lang.ArrayIndexOutOfBoundsException.
+  
+  Programming language Used: Java
+  
+  Compiler Version: Java8
+  
+  Information on how to run your program:
+  Import the given project as 
+  
+     
+   
+ 
+  
